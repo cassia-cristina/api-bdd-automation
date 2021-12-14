@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+dependencies {
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.+'
+
+    //Testes BDD
+    testImplementation "io.cucumber:cucumber-java:7.0.0"
+    testImplementation 'io.cucumber:cucumber-junit:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation 'io.rest-assured:rest-assured:4.3.+'
+}
+
+test {
+    useJUnitPlatform()
+}
