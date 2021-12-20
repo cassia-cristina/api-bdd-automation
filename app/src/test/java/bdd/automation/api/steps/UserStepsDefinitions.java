@@ -14,6 +14,7 @@ import static org.hamcrest.CoreMatchers.is;
 public class UserStepsDefinitions {
 
     private static final String CREATE_USER_ENDPOINT = "/user";
+    private static final String USER_ENDPOINT = "/user/{name}";
     private Map<String, String> expectedUser = new HashMap<>();
     private User user;
 
@@ -38,16 +39,27 @@ public class UserStepsDefinitions {
                 body("username", is(expectedUser.get("username")));
     }
 
-
     @Quando("realizo o cadastro de um usuario")
     public void realizoOCadastroDeUmUsuario() {
         user = User.builder().build();
         given().
                 body(user).
-                when().
+        when().
                 post(CREATE_USER_ENDPOINT).
         then().
                 statusCode(200);
 
     }
+
+    @Entao("o usuario deve ser salvo")
+    public void oUsuarioDeveSerSalvo() {
+        given().
+                pathParam("name",user.getUsername()).
+        when().
+                get(USER_ENDPOINT).
+        then().
+                statusCode(200).
+                body("username",is(user.getUsername()));
+    }
+
 }

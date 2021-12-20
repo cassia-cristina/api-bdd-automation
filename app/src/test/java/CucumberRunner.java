@@ -4,6 +4,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions (
+        // wip = work in progress - quarentine = testes em observação - testes não determinístico
+        tags = "not @wip and not @quarentine",
         plugin = {"pretty","html:build/reports/feature.html"},
         features = {"src/test/resources/features"}
 )
