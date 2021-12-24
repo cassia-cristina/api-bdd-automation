@@ -6,21 +6,20 @@ import lombok.Data;
 @Data
 @Builder
 public class User {
-
     @Builder.Default
     private int id = 12;
 
     @Builder.Default
-    private String username = "naiara";
+    private String username = "cassia";
 
     @Builder.Default
-    private String firstName = "Najara";
+    private String firstName = "Cassia";
 
     @Builder.Default
     private String lastName = "Souza";
 
     @Builder.Default
-    private String email = "naiara@gmail.com";
+    private String email = "cassia@gmail.com";
 
     @Builder.Default
     private String password = "12345";
